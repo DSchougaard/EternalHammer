@@ -1,12 +1,6 @@
 FILENAME=agreement
 all: 
-	latexmk -pdf $(FILENAME).tex
-	texcount $(FILENAME).tex -inc -letter -total
-
-clean:
-	cp $(FILENAME).tex _$(FILENAME).tex
-	rm $(FILENAME).*
-	mv _$(FILENAME).tex $(FILENAME).tex
-
-open:
-	gnome-open $(FILENAME).pdf
+	make --file=variations/OffSiteBackup/Makefile
+	make --file=variations/OffSiteBackupWithFileVersioning/Makefile
+	make --file=variations/PasswordManagerWithFileVersioning/Makefile
+	make --file=variations/PasswordManager/Makefile
